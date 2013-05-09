@@ -14,24 +14,6 @@ namespace AppCommon
    {
       private static Logger _logger = LogManager.GetCurrentClassLogger();
 
-      public static string LogPath
-      {
-         get
-         {
-            string curDrive = Environment.CurrentDirectory;
-            return curDrive.Substring(0, 2) + @"\UtcHosp\Log\";
-         }
-      }
-
-      public static string LogPathOnRoot
-      {
-         get
-         {
-            string curDrive = Environment.CurrentDirectory;
-            return curDrive.Substring(0, 2) + @"\UtcLog\";
-         }
-      }
-
       public static void ConfigureLogger(string fileName)
       {
          LoggingConfiguration config = LogManager.Configuration;
@@ -292,11 +274,11 @@ namespace AppCommon
 
       //            //targetDb.Name = "DbLog";
       //            //targetDb.DBProvider = "mssql";
-      //            //targetDb.DBHost = "10.1.4.45";
-      //            //targetDb.DBDatabase = "Utc03Data";
+      //            //targetDb.DBHost = "DbServer";
+      //            //targetDb.DBDatabase = "SqlData";
       //            //targetDb.DBUserName = "dev";
-      //            //targetDb.DBPassword = "fred";
-      //            //targetDb.CommandText = "EXEC v1_HelpLinkLog_spi @logLevel, @oaGuid, @userName, @logMessage;";
+      //            //targetDb.DBPassword = "PASSWORD";
+      //            //targetDb.CommandText = "EXEC v1_LogDebug_spi @logLevel, @oaGuid, @userName, @logMessage;";
 
       //            //targetDb.Parameters.Add(new DatabaseParameterInfo("@logLevel", "${level}"));
       //            //targetDb.Parameters.Add(new DatabaseParameterInfo("@oaGuid", "${aspnet-session:variable=OaGuid}"));
