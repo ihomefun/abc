@@ -8,4 +8,6 @@ Instead, install the following.
 Bundling Note: When adding the bundles for bootstrap (and probably any 
 bundles, be sure NOT to use the .min. versions)
 
-
+Important Git changes (http://sedodream.com/2012/05/05/GitCustomizingColorsForWindowsIncludingPoshgit.aspx)
+   git config --global color.status.changed "cyan normal bold" 
+   git config --global color.status.untracked "cyan normal bold"

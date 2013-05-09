@@ -79,7 +79,7 @@ publish
 *.Publish.xml
 
 # NuGet Packages Directory
-packages
+# packages (I commented this out since I think we want this in GitHub)  -<jsb>- 09May13
 
 # Windows Azure Build Output
 csx
