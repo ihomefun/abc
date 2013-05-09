@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Abc.WebRole", "Abc.WebRole\Abc.WebRole.csproj", "{D6078C87-A0A9-4BBE-A81A-9D4BFBC19964}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Abc.WebRole.Tests", "Abc.WebRole.Tests\Abc.WebRole.Tests.csproj", "{43980FA3-451C-49B1-8CBC-34609F89653B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Doc", "Doc", "{CD4B9D43-E559-4012-9D2E-5A3AAD701C58}"
+	ProjectSection(SolutionItems) = preProject
+		Notes.txt = Notes.txt
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D6078C87-A0A9-4BBE-A81A-9D4BFBC19964}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D6078C87-A0A9-4BBE-A81A-9D4BFBC19964}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D6078C87-A0A9-4BBE-A81A-9D4BFBC19964}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D6078C87-A0A9-4BBE-A81A-9D4BFBC19964}.Release|Any CPU.Build.0 = Release|Any CPU
+		{43980FA3-451C-49B1-8CBC-34609F89653B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{43980FA3-451C-49B1-8CBC-34609F89653B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{43980FA3-451C-49B1-8CBC-34609F89653B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{43980FA3-451C-49B1-8CBC-34609F89653B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

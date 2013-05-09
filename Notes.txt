@@ -1,0 +1,11 @@
+
+
+Do NOT install bootstrap - You will get an older version 1.0.0
+
+Instead, install the following.
+   PM> Install-Package Twitter.Bootstrap
+
+Bundling Note: When adding the bundles for bootstrap (and probably any 
+bundles, be sure NOT to use the .min. versions)
+
+
