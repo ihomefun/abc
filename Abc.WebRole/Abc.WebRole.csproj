@@ -40,6 +40,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="NLog">
+      <HintPath>..\packages\NLog.2.0.1.2\lib\net45\NLog.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Entity" />
@@ -191,6 +194,7 @@
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="NLog.config" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -229,6 +233,16 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AppCommon\AppCommon.Logging\AppCommon.Logging.csproj">
+      <Project>{5bfab067-72fc-4efd-86d3-227d9182d868}</Project>
+      <Name>AppCommon.Logging</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AppCommon\NLog.Targets.Syslog\src\NLog.Targets.Syslog\NLog.Targets.Syslog.csproj">
+      <Project>{d888ee7e-4394-4fb1-9b37-29513ff8a91a}</Project>
+      <Name>NLog.Targets.Syslog</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
