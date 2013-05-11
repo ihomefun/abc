@@ -51,5 +51,11 @@ namespace Abc.DataLayer
 
          return retVal;
       }
+
+
+      public void Initialize()
+      {
+          // Nothing to do here.  This method only works on memory databases.
+      }
    }
 }

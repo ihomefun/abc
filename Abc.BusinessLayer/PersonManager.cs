@@ -14,8 +14,15 @@ namespace Abc.BusinessLayer
         private IRepository _db;
 
         public PersonManager()
+            : this(false)
+        {
+        }
+
+        public PersonManager(bool initializeData)
         {
             _db = Factory.Current.Repository;
+            if (initializeData)
+            { _db.Initialize(); }
         }
 
         public Person Add(Person person)

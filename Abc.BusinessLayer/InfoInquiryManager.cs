@@ -8,24 +8,31 @@ using Abc.Entity;
 
 namespace Abc.BusinessLayer
 {
-   public class InfoInquiryManager
-   {
-      private IRepository _db;
+    public class InfoInquiryManager
+    {
+        private IRepository _db;
 
-      public InfoInquiryManager()
-      {
-         _db = Factory.Current.Repository;
-      }
+        public InfoInquiryManager()
+            : this(false)
+        {
+        }
 
-      public InfoInquiry Add(InfoInquiry infoInquiry)
-      {
-         return _db.Add(infoInquiry);
-      }
+        public InfoInquiryManager(bool initializeData)
+        {
+            _db = Factory.Current.Repository;
+            if (initializeData)
+            { _db.Initialize(); }
+        }
 
-      public List<InfoInquiry> List()
-      {
-         return _db.List<InfoInquiry>().ToList();
-      }
-   }
+        public InfoInquiry Add(InfoInquiry infoInquiry)
+        {
+            return _db.Add(infoInquiry);
+        }
+
+        public List<InfoInquiry> List()
+        {
+            return _db.List<InfoInquiry>().ToList();
+        }
+    }
 
 }

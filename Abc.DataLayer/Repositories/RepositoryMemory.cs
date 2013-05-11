@@ -10,33 +10,38 @@ namespace Abc.DataLayer
 {
    public class RepositoryMemory : IRepository
    {
-      private readonly IList<Person> _people;
-      private readonly IList<InfoInquiry> _infoInquiries;
+      private IList<Person> _people;
+      private IList<InfoInquiry> _infoInquiries;
 
       public RepositoryMemory()
       {
-         var random = new RandomData();
+          Initialize();
+      }
 
-         _people = new List<Person>();
-         for (int iLoop = 0; iLoop < random.Int(3, 10); iLoop++)
-         {
-            _people.Add(new Person
-               {
+      public void Initialize()
+      {
+          var random = new RandomData();
+
+          _people = new List<Person>();
+          for (int iLoop = 0; iLoop < random.Int(3, 10); iLoop++)
+          {
+              _people.Add(new Person
+              {
                   Id = iLoop + 1,
                   FirstName = random.Word(),
                   LastName = random.Word()
-               });
-         }
+              });
+          }
 
-         _infoInquiries = new List<InfoInquiry>();
-         for (int iLoop = 0; iLoop < random.Int(3, 10); iLoop++)
-         {
-            _infoInquiries.Add(new InfoInquiry
-            {
-               Id = iLoop + 1,
-               Email = random.Word() + "@" + random.Word() + ".com"
-            });
-         }
+          _infoInquiries = new List<InfoInquiry>();
+          for (int iLoop = 0; iLoop < random.Int(3, 10); iLoop++)
+          {
+              _infoInquiries.Add(new InfoInquiry
+              {
+                  Id = iLoop + 1,
+                  Email = random.Word() + "@" + random.Word() + ".com"
+              });
+          }
       }
 
       public IQueryable<T> List<T>() where T : EntityBase

@@ -6,10 +6,11 @@ using System.Text;
 
 namespace Abc.DataLayer
 {
-   public class RandomData
-   {
-      private readonly Random _random = new Random();
-      private readonly string[] _words = new[]
+    public class RandomData
+    {
+        // private readonly Random _random = new Random((int)DateTime.Now.Ticks & 0x0000FFFF);
+        private Random _random = new Random((int)DateTime.Now.Ticks & 0x0000FFFF);
+        private readonly string[] _words = new[]
                                       {
                                           "lorem", "ipsum", "dolor", "sit", "amet", "nonumy", "eirmod", "tempor",
                                           "invidunt", "ut", "labore", "et", "dolore", "magna", "aliquyam", "erat", "sed",
@@ -76,118 +77,124 @@ namespace Abc.DataLayer
                                           "lorem", "ipsum"
                                       };
 
-      public DateTime Date(int minYear, int maxYear)
-      {
-         return Date(new DateTime(minYear, 1, 1), new DateTime(maxYear - 1, 12, 31, 23, 59, 59));
-      }
+        public RandomData()
+        {
+            // Without this, sometimes two tests will get the same seed value.
+            System.Threading.Thread.Sleep(1);
+        }
 
-      public DateTime Date(DateTime min, DateTime max)
-      {
-         return new DateTime(Long(min.Ticks, max.Ticks));
-      }
+        public DateTime Date(int minYear, int maxYear)
+        {
+            return Date(new DateTime(minYear, 1, 1), new DateTime(maxYear - 1, 12, 31, 23, 59, 59));
+        }
 
-      public long Long(long min, long max)
-      {
-         return min + Convert.ToInt64((max - min) * _random.NextDouble());
-      }
+        public DateTime Date(DateTime min, DateTime max)
+        {
+            return new DateTime(Long(min.Ticks, max.Ticks));
+        }
 
-      public string Ipsum(int minWords, int maxWords)
-      {
-         return Ipsum(_random.Next(minWords, maxWords));
-      }
+        public long Long(long min, long max)
+        {
+            return min + Convert.ToInt64((max - min) * _random.NextDouble());
+        }
 
-      public string Word()
-      {
-         return _words[_random.Next(_words.Length - 1)];
-      }
+        public string Ipsum(int minWords, int maxWords)
+        {
+            return Ipsum(_random.Next(minWords, maxWords));
+        }
 
-      public string Ipsum(int numWords)
-      {
-         var result = new StringBuilder("lorem");
-         for (var i = 1; i < 5; i++)
-         {
-            if (i >= numWords)
-               return result.ToString();
-            result.Append(" ").Append(_words[i - 1]);
-         }
-         for (var i = 6; i < numWords; i++)
-            result.Append(" ").Append(Word());
-         return result.ToString();
-      }
+        public string Word()
+        {
+            return _words[_random.Next(_words.Length - 1)];
+        }
 
-      public int Int(int min, int max)
-      {
-         return _random.Next(min, max);
-      }
-
-      public int Int(int max)
-      {
-         return _random.Next(max);
-      }
-
-      public string Format(string format)
-      {
-         var sb = new StringBuilder();
-         foreach (var ch in format)
-         {
-            switch (ch)
+        public string Ipsum(int numWords)
+        {
+            var result = new StringBuilder("lorem");
+            for (var i = 1; i < 5; i++)
             {
-               case '0':
-                  sb.Append(_random.Next(9).ToString(CultureInfo.InvariantCulture));
-                  break;
-               case 'U':
-                  sb.Append(Convert.ToChar(_random.Next(65, 90)));
-                  break;
-               case 'l':
-                  sb.Append(Convert.ToChar(_random.Next(97, 122)));
-                  break;
-               default:
-                  sb.Append(ch);
-                  break;
+                if (i >= numWords)
+                    return result.ToString();
+                result.Append(" ").Append(_words[i - 1]);
             }
-         }
-         return sb.ToString();
-      }
+            for (var i = 6; i < numWords; i++)
+                result.Append(" ").Append(Word());
+            return result.ToString();
+        }
 
-      public T Item<T>(List<T> list)
-      {
-         return list[_random.Next(list.Count - 1)];
-      }
+        public int Int(int min, int max)
+        {
+            return _random.Next(min, max);
+        }
 
-      public TK Value<T, TK>(Dictionary<T, TK> dictionary)
-      {
-         var keys = dictionary.Keys.ToList();
-         return dictionary[Item(keys)];
-      }
+        public int Int(int max)
+        {
+            return _random.Next(max);
+        }
 
-      private string GenString(int size, int minChr, int maxChr)
-      {
-         var sb = new StringBuilder();
-         for (int i = 0; i < size; i++)
-         {
-            sb.Append(Convert.ToChar(_random.Next(minChr, maxChr)));
-         }
-         return sb.ToString();
-      }
+        public string Format(string format)
+        {
+            var sb = new StringBuilder();
+            foreach (var ch in format)
+            {
+                switch (ch)
+                {
+                    case '0':
+                        sb.Append(_random.Next(9).ToString(CultureInfo.InvariantCulture));
+                        break;
+                    case 'U':
+                        sb.Append(Convert.ToChar(_random.Next(65, 90)));
+                        break;
+                    case 'l':
+                        sb.Append(Convert.ToChar(_random.Next(97, 122)));
+                        break;
+                    default:
+                        sb.Append(ch);
+                        break;
+                }
+            }
+            return sb.ToString();
+        }
 
-      public string NumberString(int size)
-      {
-         return GenString(size, 48, 57);
-      }
+        public T Item<T>(List<T> list)
+        {
+            return list[_random.Next(list.Count - 1)];
+        }
 
-      public string Upper(int size)
-      {
-         return GenString(size, 65, 90);
-      }
+        public TK Value<T, TK>(Dictionary<T, TK> dictionary)
+        {
+            var keys = dictionary.Keys.ToList();
+            return dictionary[Item(keys)];
+        }
 
-      public string Lower(int size)
-      {
-         return GenString(size, 97, 122);
-      }
+        private string GenString(int size, int minChr, int maxChr)
+        {
+            var sb = new StringBuilder();
+            for (int i = 0; i < size; i++)
+            {
+                sb.Append(Convert.ToChar(_random.Next(minChr, maxChr)));
+            }
+            return sb.ToString();
+        }
 
-      public string Phone()
-      {
-         return Format("555-000-0000");
-      }
-   }
+        public string NumberString(int size)
+        {
+            return GenString(size, 48, 57);
+        }
+
+        public string Upper(int size)
+        {
+            return GenString(size, 65, 90);
+        }
+
+        public string Lower(int size)
+        {
+            return GenString(size, 97, 122);
+        }
+
+        public string Phone()
+        {
+            return Format("555-000-0000");
+        }
+    }
 }

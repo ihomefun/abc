@@ -12,5 +12,6 @@ namespace Abc.DataLayer
     {
         T Add<T>(T t) where T : EntityBase;
         IQueryable<T> List<T>() where T : EntityBase;
+        void Initialize();
     }
 }
