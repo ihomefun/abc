@@ -32,9 +32,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework">
-      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -51,9 +48,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Abc.BusinessLayer\Abc.BusinessLayer.csproj">
+      <Project>{d2bbdb4d-b938-4f11-9900-186c23f4b086}</Project>
+      <Name>Abc.BusinessLayer</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Abc.Entity\Abc.Entity.csproj">
       <Project>{5e8b94dd-e47e-4296-8719-8d54767e3a07}</Project>
       <Name>Abc.Entity</Name>

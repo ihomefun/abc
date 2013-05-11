@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Abc.Entity
 {
-    public class InfoInquiry : BaseEntity<long>
+    public class InfoInquiry : EntityBase
     {
         public virtual string Email { get; set; }
         public virtual DateTime DateAddedUtc { get; set; }

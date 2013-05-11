@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 using Abc.Entity;
 
-namespace Abc.DataLayer.Repositories
+namespace Abc.DataLayer
 {
     public interface IRepository
     {
-        IList<InfoInquiry> ListInfoInquiry(string sortExpression, int maxRows, int startRow, out int totalRowCount);
-        InfoInquiry Add(InfoInquiry infoInquiry);
+        T Add<T>(T t) where T : EntityBase;
+        IQueryable<T> List<T>() where T : EntityBase;
     }
 }
