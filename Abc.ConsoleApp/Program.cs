@@ -16,10 +16,21 @@ namespace Abc.ConsoleApp
         {
             Console.WriteLine("Started");
 
-            CodeTest();
+            // CodeTest();
+            AddRecord();
 
             Console.WriteLine("Press Enter");
             Console.ReadLine();
+        }
+
+        private static void AddRecord()
+        {
+            // Add an Inquiry request
+            InfoInquiryManager mgrInfo = new InfoInquiryManager();
+
+            InfoInquiry one = new InfoInquiry { Email = "Fred@Flintstone.com" };
+
+            InfoInquiry newOne = mgrInfo.Add(one);
         }
 
         private static void CodeTest()

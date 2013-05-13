@@ -30,11 +30,19 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AWS.Extensions">
+      <HintPath>..\packages\AWS.Extensions.1.5.19.0\lib\AWS.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK, Version=1.5.19.0, Culture=neutral, PublicKeyToken=9f476d3089b52be3, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\AWSSDK.1.5.19.0\lib\AWSSDK.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework">
       <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Entity" />
     <Reference Include="System.Xml.Linq" />
@@ -48,6 +56,7 @@
     <Compile Include="Repositories\EntityFrameworkContext.cs" />
     <Compile Include="Repositories\IRepository.cs" />
     <Compile Include="Repositories\RandomData.cs" />
+    <Compile Include="Repositories\RepositoryDynamoDb.cs" />
     <Compile Include="Repositories\RepositoryEntityFramework.cs" />
     <Compile Include="Repositories\RepositoryMemory.cs" />
   </ItemGroup>
@@ -56,9 +65,14 @@
       <Project>{5e8b94dd-e47e-4296-8719-8d54767e3a07}</Project>
       <Name>Abc.Entity</Name>
     </ProjectReference>
+    <ProjectReference Include="..\AppCommon\AppCommon.Misc\AppCommon.Misc.csproj">
+      <Project>{05c26666-e4c3-43b9-979a-89e1d9449f3b}</Project>
+      <Name>AppCommon.Misc</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="aws-sessionprovider-sample.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

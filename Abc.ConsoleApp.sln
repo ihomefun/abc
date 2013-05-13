@@ -11,6 +11,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Abc.BusinessLayer", "Abc.Bu
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Abc.BusinessLayer.Tests", "Abc.BusinessLayer.Tests\Abc.BusinessLayer.Tests.csproj", "{43D95342-E985-461F-AA9D-80D1F6F4A463}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AppCommon", "AppCommon", "{1CC13C0C-9098-4CFB-AC00-EA77D7C3FCF3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppCommon.Misc", "AppCommon\AppCommon.Misc\AppCommon.Misc.csproj", "{05C26666-E4C3-43B9-979A-89E1D9449F3B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -37,8 +41,15 @@ Global
 		{43D95342-E985-461F-AA9D-80D1F6F4A463}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{43D95342-E985-461F-AA9D-80D1F6F4A463}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{43D95342-E985-461F-AA9D-80D1F6F4A463}.Release|Any CPU.Build.0 = Release|Any CPU
+		{05C26666-E4C3-43B9-979A-89E1D9449F3B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{05C26666-E4C3-43B9-979A-89E1D9449F3B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{05C26666-E4C3-43B9-979A-89E1D9449F3B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{05C26666-E4C3-43B9-979A-89E1D9449F3B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{05C26666-E4C3-43B9-979A-89E1D9449F3B} = {1CC13C0C-9098-4CFB-AC00-EA77D7C3FCF3}
 	EndGlobalSection
 EndGlobal
